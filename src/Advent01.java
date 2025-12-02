@@ -34,18 +34,22 @@ public class Advent01 {
         System.out.println(partTwoAnswer);
     }
     public static int turn (String direction, int turn) {
-        if (direction.equals("L")) {
-            position = position - turn;
-            for (int i = 0; position < 0; i++){
-                position = position + 100;
-                partTwoAnswer = partTwoAnswer + 1;
+        for (int i = 0; i < turn; i++) {
+            if (direction.equals("L")) {
+                position--;
+                if (position == -1) {
+                    position = 99;
+                }
             }
-        }
-        if (direction.equals("R")) {
-            position = position + turn;
-            for (int i = 0; position > 99; i++){
-                position = position - 100;
-                partTwoAnswer = partTwoAnswer + 1;
+
+            if (direction.equals("R")) {
+                position++;
+                if (position == 100) {
+                    position = 0;
+                }
+            }
+            if (position == 0) {
+                partTwoAnswer++;
             }
         }
 
