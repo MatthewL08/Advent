@@ -24,10 +24,12 @@ public class Day03Template {
         for (int i = 0; i < batteries.length() - 1; i++) {
             int a = Integer.parseInt(batteries.substring(i, i+1));
             int b = Integer.parseInt(batteries.substring(i+1, i+2));
-            System.out.println(largestCombination);
-            System.out.println(a);
-            System.out.println(b);
+            if (b > a){
+                largestCombination = b *10;
+                indexOfHighest = i;
+            }
         }
+
         return largestCombination;
     }
 
