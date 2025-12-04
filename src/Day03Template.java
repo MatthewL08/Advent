@@ -21,15 +21,26 @@ public class Day03Template {
     public static int getLargestCombination(String batteries) {
         int largestCombination = Integer.parseInt(batteries.substring(0, 1))*10;
         int indexOfHighest = 0;
-        for (int i = 0; i < batteries.length() - 1; i++) {
+        for (int i = 0; i < batteries.length() - 2; i++) {
             int a = Integer.parseInt(batteries.substring(i, i+1));
-            int b = Integer.parseInt(batteries.substring(i+1, i+2));
+            int b = Integer.parseInt(batteries.substring(i+1,i+2));
             if (b > a){
-                largestCombination = b *10;
-                indexOfHighest = i;
+                if (b * 10 > largestCombination) {
+                    largestCombination = b * 10;
+                    indexOfHighest = i;
+                }
             }
         }
-
+        int temp = Integer.parseInt(batteries.substring(indexOfHighest+1,indexOfHighest+2 ));
+        for (int i = indexOfHighest; i < batteries.length() - 2; i++) {
+            int a = Integer.parseInt(batteries.substring(i+1, i+2));
+            int b = Integer.parseInt(batteries.substring(i+2,i+3));
+            if (b > a){
+                temp = b;
+            }
+        }
+        largestCombination = largestCombination + temp;
+        System.out.println(largestCombination);
         return largestCombination;
     }
 
