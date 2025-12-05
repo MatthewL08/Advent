@@ -27,17 +27,21 @@ public class Day03Template {
             if (b > a){
                 if (b * 10 > largestCombination) {
                     largestCombination = b * 10;
-                    indexOfHighest = i;
+                    indexOfHighest = i+1;
                 }
             }
         }
         int temp = Integer.parseInt(batteries.substring(indexOfHighest+1,indexOfHighest+2 ));
-        for (int i = indexOfHighest; i < batteries.length() - 2; i++) {
-            int a = Integer.parseInt(batteries.substring(i+1, i+2));
-            int b = Integer.parseInt(batteries.substring(i+2,i+3));
+        System.out.println(temp);
+        for (int i = indexOfHighest+1 ; i < batteries.length() - 1; i++) {
+            int a = Integer.parseInt(batteries.substring(i, i+1));
+            int b = Integer.parseInt(batteries.substring(i+1,i+2));
+            System.out.println(a + " " + b);
             if (b > a){
-                temp = b;
-            }
+                if (b > temp) {
+                    temp = b;
+                    System.out.println(temp);
+                } }
         }
         largestCombination = largestCombination + temp;
         System.out.println(largestCombination);
