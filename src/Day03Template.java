@@ -32,15 +32,12 @@ public class Day03Template {
             }
         }
         int temp = Integer.parseInt(batteries.substring(indexOfHighest+1,indexOfHighest+2 ));
-        System.out.println(temp);
         for (int i = indexOfHighest+1 ; i < batteries.length() - 1; i++) {
             int a = Integer.parseInt(batteries.substring(i, i+1));
             int b = Integer.parseInt(batteries.substring(i+1,i+2));
-            System.out.println(a + " " + b);
             if (b > a){
                 if (b > temp) {
                     temp = b;
-                    System.out.println(temp);
                 } }
         }
         largestCombination = largestCombination + temp;
